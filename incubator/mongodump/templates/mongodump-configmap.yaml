@@ -19,7 +19,7 @@ data:
     rm -rf /mnt/backup/mongo_backup_${TIMESTAMP}
     gzip /mnt/backup/mongo_backup_${TIMESTAMP}.tar
     #rm /mnt/backup/mongo_backup_${TIMESTAMP}.tar
-    find /mnt/backup/ -mtime +${KEEP_DAYS} -regex "^/mnt/backup/mongo_backup_.[0-9]*\.tar\.gz$"  -type f -exec ls -l {} \;
+    find /mnt/backup/ -mtime +${KEEP_DAYS} -regex "^/mnt/backup/mongo_backup_.[0-9]*\.tar\.gz$"  -type f -exec rm -rf {} \;
 ---
 apiVersion: v1
 kind: ConfigMap
